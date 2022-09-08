@@ -7,22 +7,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'testing...'
+                echo 'building...'
                 //echo 'Running build automation'
                 //sh './gradlew build --no-daemon'
                 //archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
         stage('Build Docker Image') {
-            when {
-                branch 'main'
-            }
+            //when {
+            //    branch 'main'
+            //}
             steps {
-                script {
-                    app = docker.build(DOCKER_IMAGE_NAME)
-                    app.inside {
-                        sh 'echo Hello, World!'
-                    }
+                echo 'buiding img...'
+                //script {
+                 //   app = docker.build(DOCKER_IMAGE_NAME)
+                 //   app.inside {
+                 //       sh 'echo Hello, World!'
+                 //   }
                 }
             }
         }
